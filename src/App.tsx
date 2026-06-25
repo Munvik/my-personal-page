@@ -21,11 +21,10 @@ const technologies = [
       'ASP.NET Core',
       'Entity Framework Core',
       'PostgreSQL',
-    ],
-  },
-  {
-    category: 'Infrastructure',
-    items: [
+      'CQRS',
+      'Domain Driven Design',
+      'Clean Architecture',
+      'Testing (xUnit, Moq, FluentAssertions)',
       'Docker',
       'Redis',
       'GitHub Actions',
@@ -51,6 +50,37 @@ const technologies = [
 
 const projects = [
   {
+    name: 'Trainee',
+    description: 'A platform for managing and tracking training sessions for trainers and trainees.',
+    link: 'https://trainmee.pl',
+    repositories: [
+      {
+        label: 'Private Repository',
+        url: '#',
+        private: true,
+      },
+    ],
+  },
+  {
+    name: 'Portfolio Website - you are on it!',
+    description: 'A minimal personal site designed to present profile, skills and selected work clearly.',
+    link: 'https://bw-dev.pl',
+    repositories: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/Munvik/my-personal-page',
+        private: false,
+      },
+    ],
+  },
+  {
+    name: 'Gamedev Website',
+    description: 'A website designed for a game development freelancer',
+    link: 'https://gamemonfdev.pl',
+    repositories: [
+    ],
+  },
+  {
     name: 'Steam Demo',
     description: 'A small demo project focused on a clean backend structure and practical API workflows.',
     link: 'https://steam.bw-dev.pl',
@@ -66,38 +96,7 @@ const projects = [
         private: false,
       },
     ],
-  },
-  {
-    name: 'Trainee',
-    description: 'A platform for managing and tracking training sessions for trainers and trainees.',
-    link: 'https://trainmee.pl',
-    repositories: [
-      {
-        label: 'Private Repository',
-        url: '#',
-        private: true,
-      },
-    ],
-  },
-  {
-    name: 'Portfolio Website',
-    description: 'A minimal personal site designed to present profile, skills and selected work clearly.',
-    link: '#',
-    repositories: [
-      {
-        label: 'GitHub',
-        url: 'https://github.com/Munvik/Portfolio',
-        private: false,
-      },
-    ],
-  },
-  {
-    name: 'Gamedev Website',
-    description: 'A website designed for a game development freelancer',
-    link: 'https://gamemonfdev.pl',
-    repositories: [
-    ],
-  },
+  }
 ]
 
 const theme = createTheme({
@@ -256,58 +255,78 @@ function App() {
 
             <Stack spacing={2.5}>
               <Typography variant="h5" component="h2">
-                Projects
+                Public Projects
               </Typography>
               <Stack spacing={2}>
                 {projects.map((project) => (
                   <Card key={project.name}>
                     <CardContent>
-                      <Stack spacing={3}>
+                      <Stack spacing={2.5}>
                         <Box>
-                          <Typography variant="h6" component="h3" gutterBottom>
+                          <Typography variant="h6">
                             {project.name}
                           </Typography>
 
-                          <Typography variant="body2" color="text.secondary">
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            sx={{ mt: 1 }}
+                          >
                             {project.description}
                           </Typography>
                         </Box>
 
-                        <Stack spacing={1.5}>
-                          <Button
-                            variant="contained"
-                            href={project.link}
-                            fullWidth
-                          >
-                            Open Project
-                          </Button>
+                        <Divider />
 
-                          {project.repositories.length > 0 && (
+                        <Stack spacing={1}>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{ fontWeight: 700 }}
+                          >
+                            🌐 Page
+                          </Typography>
+
+                          <Button
+                            href={project.link}
+                            target="_blank"
+                            variant="text"
+                            sx={{ justifyContent: 'flex-start' }}
+                          >
+                            {project.link.replace('https://', '')}
+                          </Button>
+                        </Stack>
+
+                        {project.repositories.length > 0 && (
+                          <Stack spacing={1}>
                             <Typography
                               variant="subtitle2"
-                              color="text.secondary"
-                              sx={{ fontWeight: 600 }}
+                              sx={{ fontWeight: 700 }}
                             >
-                              Repositories
+                              📦 Repositories
                             </Typography>
-                          )}
 
-                          <Stack spacing={1}>
                             {project.repositories.map((repository) => (
-                              <Button
-                                key={repository.label}
-                                variant="outlined"
-                                href={repository.private ? '' : repository.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                disabled={repository.private}
-                                fullWidth
-                              >
-                                {repository.label}
-                              </Button>
+                              repository.private ? (
+                                <Chip
+                                  key={repository.label}
+                                  label="Private Repository"
+                                  variant="outlined"
+                                  sx={{ width: 'fit-content' }}
+                                />
+                              ) : (
+                                <Button
+                                  key={repository.label}
+                                  href={repository.url}
+                                  target="_blank"
+                                  variant="text"
+                                  sx={{ justifyContent: 'flex-start' }}
+                                >
+                                  {repository.label}
+                                </Button>
+                              )
                             ))}
                           </Stack>
-                        </Stack>
+                        )}
                       </Stack>
                     </CardContent>
                   </Card>
