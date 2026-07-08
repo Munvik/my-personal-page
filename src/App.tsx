@@ -182,33 +182,35 @@ function App() {
                     boxShadow: '0 0 0 6px rgba(102, 192, 244, 0.06)',
                   }}
                 />
-                <Box>
-                  <Typography variant="h3" component="h1" gutterBottom>
-                    Bartosz Włoszek
-                  </Typography>
-                  <Typography variant="h6" color="primary" gutterBottom>
-                    Backend .NET Developer | Full Stack Enthusiast | Game Developer
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="text.secondary"
-                    sx={{ maxWidth: 920, mx: 'auto', lineHeight: 1.8 }}
-                  >
-                    I'm a Software Developer focused on backend development with .NET.
-                    <br />
-                    I enjoy building reliable applications and continuously expanding
-                    my technical skills by working on personal projects and exploring new technologies.
-                    <br />
-                    Before moving into backend development, I worked professionally as a Game Developer.
-                    Today I still create games as a hobby and through freelance projects.
-                    <br />
-                    Outside of software development, I'm actively involved in sports, especially racket sports and Racketlon,
-                    and I regularly attend game development events and hackathons.
-
-                  </Typography>
+                <Box sx={{ textAlign: 'center' }}>
                 </Box>
               </Stack>
+              <Typography variant="h3">Bartosz Włoszek</Typography>
+              <Typography variant="h6" color="primary">
+                Backend .NET Developer | Full Stack Enthusiast | Game Developer
+              </Typography>
             </Box>
+            <Box sx={{ mt: 4 }}>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{
+                  lineHeight: 1.9,
+                }}
+              >
+                I'm a Software Developer focused on backend development with .NET.
+                <br />
+                I enjoy building reliable applications and continuously expanding
+                my technical skills by working on personal projects and exploring new technologies.
+                <br />
+                Before moving into backend development, I worked professionally as a Game Developer.
+                Today I still create games as a hobby and through freelance projects.
+                <br />
+                Outside of software development, I'm actively involved in sports, especially racket sports and Racketlon,
+                and I regularly attend game development events and hackathons.
+              </Typography>
+            </Box>
+
 
             <Divider flexItem sx={{ borderColor: 'rgba(167, 176, 189, 0.18)' }} />
 
