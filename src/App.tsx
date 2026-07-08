@@ -133,9 +133,10 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          border: '1px solid rgba(102, 192, 244, 0.14)',
+          border: '1px solid rgba(102, 192, 244, 0.24)',
           boxShadow: 'none',
-          backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0))',
+          backgroundColor: 'rgba(255,255,255,0.02)',
+          backgroundImage: 'none',
         },
       },
     },
@@ -239,6 +240,7 @@ function App() {
                             variant="outlined"
                             sx={{
                               borderColor: 'rgba(102, 192, 244, 0.24)',
+                              borderRadius: 0.5,
                               color: 'text.primary',
                               backgroundColor: 'rgba(255,255,255,0.02)',
                             }}
@@ -259,7 +261,14 @@ function App() {
               </Typography>
               <Stack spacing={2}>
                 {projects.map((project) => (
-                  <Card key={project.name}>
+                  <Card
+                    key={project.name}
+                    sx={{
+                      borderColor: 'rgba(102, 192, 244, 0.24)',
+                      borderRadius: 0.5,
+                      color: 'text.primary',
+                      backgroundColor: 'rgba(255,255,255,0.02)',
+                    }}>
                     <CardContent>
                       <Stack spacing={2.5}>
                         <Box>
@@ -311,7 +320,9 @@ function App() {
                                   key={repository.label}
                                   label="Private Repository"
                                   variant="outlined"
-                                  sx={{ width: 'fit-content' }}
+                                  sx={{
+                                    width: 'fit-content',
+                                  }}
                                 />
                               ) : (
                                 <Button
